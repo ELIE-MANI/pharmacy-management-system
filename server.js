@@ -12,10 +12,16 @@ app.get('/', (req, res) => {
         message: 'Welcome to the Pharmacy Management System API'
     });
 });
+app.get('/users', (req, res) => {
+    res.json({
+        message: 'Welcome to the Pharmacy Management System API'
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
 
 
 
