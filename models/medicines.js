@@ -12,3 +12,5 @@ const Medicines = sequelize.define('medicines', {
     },
     
 });
+
+module.exports = Medicines; 
