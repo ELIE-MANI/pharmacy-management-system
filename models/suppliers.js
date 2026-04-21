@@ -13,3 +13,5 @@ const Suppliers = sequelize.define('suppliers', {
 
     },
 });
+
+module.exports = Suppliers;

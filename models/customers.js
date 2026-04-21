@@ -14,3 +14,5 @@ const Customers = sequelize.define('customers', {
    },
    
 });
+
+module.exports = Customers;

@@ -6,3 +6,5 @@ const PrescriptionItems = sequelize.define('prescription_items', {
  quantity: DataTypes.INTEGER       
 
 });
+
+module.exports = PrescriptionItems;
