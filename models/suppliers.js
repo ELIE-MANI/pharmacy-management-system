@@ -10,7 +10,7 @@ const Suppliers = sequelize.define('suppliers', {
     name: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        
     },
     contact: {
         type: DataTypes.CHAR(10),
