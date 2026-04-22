@@ -14,14 +14,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json ());
 
 
-const prescription_allRoutes = require('./routes/prescription_all.routes');
 
-
-app.use('/prescription_all', prescription_allRoutes);
-const prescription_twoRoutes = require('./routes/prescription_two.routes');
 const prescription_customerRoutes = require('./routes/prescription_customer.routes');
 
-app.use('/prescription_two', prescription_twoRoutes);
 app.use('/prescription_customer', prescription_customerRoutes);
 
 
