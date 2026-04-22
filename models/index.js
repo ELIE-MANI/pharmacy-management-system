@@ -11,12 +11,12 @@ Supplier.hasMany(Medicine);
 Medicine.belongsTo(Supplier);
 
 // Customer to Prescription
-Customer.hasMany(Prescription);
-Prescription.belongsTo(Customer);
+Customer.hasMany(Prescription, { foreignKey: 'customerId' });
+Prescription.belongsTo(Customer, { foreignKey: 'customerId' });
 
 // Prescription to Medicine (many-to-many)
-Prescription.belongsToMany(Medicine, { through: PrescriptionItem });
-Medicine.belongsToMany(Prescription, { through: PrescriptionItem });
+Prescription.belongsToMany(Medicine, { through: PrescriptionItem, foreignKey: 'prescriptionId', otherKey: 'medicineId' });
+Medicine.belongsToMany(Prescription, { through: PrescriptionItem, foreignKey: 'medicineId', otherKey: 'prescriptionId' });
 
 module.exports = {
   sequelize,

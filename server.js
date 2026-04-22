@@ -8,6 +8,13 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 app.use(express.json ());
 
+const prescription_twoRoutes = require('./routes/prescription_two.routes');
+const prescription_allRoutes = require('./routes/prescription_all.routes');
+
+app.use('/prescription_two', prescription_twoRoutes);
+app.use('/prescription_all', prescription_allRoutes);
+
+
 
 app.get('/', (req, res) => {
     res.json({
