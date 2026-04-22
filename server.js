@@ -1,10 +1,14 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-
-const {sequelize} = require('./models');
-
 dotenv.config();
+const {sequelize} = require('./models');
+const customerRoutes = require('./routes/customer_routes');
+const  supplierRoutes = require('./routes/supplier_routes');
+const medicineRoutes = require('./routes/medicine_routes');
+const prescriptionRoutes = require('./routes/prescription_routes');
+
+
 const PORT = process.env.PORT || 3000;
 app.use(express.json ());
 
@@ -22,6 +26,10 @@ app.get('/', (req, res) => {
     });
 });
 
+app.use('/suppliers', supplierRoutes);
+app.use('/medicines', medicineRoutes);
+app.use('/customers', customerRoutes);
+app.use('/prescriptions', prescriptionRoutes);
 sequelize.sync({force: false })
 .then(() => {
    console.log('Database synced');

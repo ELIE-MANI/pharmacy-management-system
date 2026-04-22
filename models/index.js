@@ -7,8 +7,8 @@ const Prescription = require("./prescriptions");
 const PrescriptionItem = require("./prescription_items");
 
 // Supplier to Medicine
-Supplier.hasMany(Medicine);
-Medicine.belongsTo(Supplier);
+Supplier.hasMany(Medicine, { foreignKey: 'supplierId' }); ;
+Medicine.belongsTo(Supplier, { foreignKey: 'supplierId' });
 
 // Customer to Prescription
 Customer.hasMany(Prescription, { foreignKey: 'customerId' });
