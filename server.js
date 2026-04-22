@@ -12,9 +12,7 @@ const prescriptionRoutes = require('./routes/prescription_routes');
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json ());
-
-
-
+// second-user
 const prescription_customerRoutes = require('./routes/prescription_customer.routes');
 
 app.use('/prescription_customer', prescription_customerRoutes);
