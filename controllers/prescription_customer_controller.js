@@ -1,7 +1,8 @@
 const e = require('express');
 const router = e.Router();
 const { Prescription, Customer, Medicine, Supplier, PrescriptionItem } = require('../models');
-// Get all prescriptions for a specific customer
+
+// Get all prescriptions for a specific customer using customer id
 router.get('/customer/:id', async (req, res) => {
   try {
     const data = await Prescription.findAll({
