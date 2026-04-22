@@ -8,6 +8,14 @@ id:{
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true
 }, 
+prescriptionId:{
+    type: DataTypes.UUID,
+    allowNull: false
+},
+medicineId:{
+    type: DataTypes.UUID,
+    allowNull: false
+},
 dosage: {
     type: DataTypes.STRING,
     allowNull: false

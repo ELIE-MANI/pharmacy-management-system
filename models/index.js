@@ -15,8 +15,12 @@ Customer.hasMany(Prescription);
 Prescription.belongsTo(Customer);
 
 // Prescription to Medicine (many-to-many)
-Prescription.belongsToMany(Medicine, { through: PrescriptionItem });
-Medicine.belongsToMany(Prescription, { through: PrescriptionItem });
+Prescription.belongsToMany(Medicine,
+     { through: PrescriptionItem 
+    , foreignKey: 'prescriptionId' });
+Medicine.belongsToMany(Prescription, 
+    { through: PrescriptionItem, 
+    foreignKey: 'medicineId' });
 
 
 module.exports = {

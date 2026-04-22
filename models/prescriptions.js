@@ -8,7 +8,12 @@ const Prescriptions = sequelize.define('prescriptions', {
     type: DataTypes.UUID,
     defaultValue: DataTypes.UUIDV4,
     primaryKey: true
-  }  
+  },  
+
+  customerId:{
+    type: DataTypes.UUID,
+    allowNull: false    
+    }
 });
 
 module.exports = Prescriptions;
