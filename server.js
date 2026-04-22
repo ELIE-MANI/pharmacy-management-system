@@ -9,14 +9,15 @@ const medicineRoutes = require('./routes/medicine_routes');
 const prescriptionRoutes = require('./routes/prescription_routes');
 
 
+
 const PORT = process.env.PORT || 3000;
 app.use(express.json ());
 
 const prescription_twoRoutes = require('./routes/prescription_two.routes');
-const prescription_allRoutes = require('./routes/prescription_all.routes');
+const prescription_customerRoutes = require('./routes/prescription_customer.routes');
 
 app.use('/prescription_two', prescription_twoRoutes);
-app.use('/prescription_all', prescription_allRoutes);
+app.use('/prescription_customer', prescription_customerRoutes);
 
 
 
