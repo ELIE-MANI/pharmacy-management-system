@@ -7,11 +7,13 @@ const customerRoutes = require('./routes/customer_routes');
 const  supplierRoutes = require('./routes/supplier_routes');
 const medicineRoutes = require('./routes/medicine_routes');
 const prescriptionRoutes = require('./routes/prescription_routes');
-
-
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./config/swagger');
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json ());
+// Swagger setup
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // second-user
 const prescription_customerRoutes = require('./routes/prescription_customer.routes');
 
