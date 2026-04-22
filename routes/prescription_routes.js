@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const
+
 const prescriptionController = require('../controllers/prescription_controller');
 
 // Create a new prescription
