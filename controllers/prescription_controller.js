@@ -1,4 +1,4 @@
-const {Prescription, PrescriptionItem} = require('../models');
+const {Prescription, Customer, Medicine, Supplier, PrescriptionItem} = require('../models');
 
 // Create a new prescription
 exports.createPrescription = async (req, res) => {
@@ -36,5 +36,49 @@ exports.createPrescription = async (req, res) => {
         res.status(500).json({
             message: error.message || 'An error occurred while creating the prescription',
         });
+    }
+}
+
+// Get a full prescription with its items
+exports.getFullPrescription = async (req, res) => {
+    try {
+        const {id} = req.params;
+        const prescription = await Prescription.findByPk(id,{
+            include: [
+                {
+                  model: Customer,
+                    attributes: ['id', 'name', 'contact']  
+                },
+                {
+                    model: Medicine,
+                    attributes: ['id', 'name', 'price'],
+                    through: {
+                        model: PrescriptionItem,
+                        attributes: ['dosage', 'quantity']
+                    },
+                include: [
+                    {
+                        model: Supplier,
+                        attributes: ['id', 'name', 'contact']
+                    }
+                ]
+            }
+            ]
+        });
+        if (!prescription) {
+            return res.status(404).json({
+                message: 'Prescription not found'
+            });
+        }
+        res.status(200).json({
+            message: 'Prescription retrieved successfully',
+            data: prescription
+        });
+
+    } catch (error){
+        console.error('Error retrieving prescription:', error);
+           res.status(500).json({   
+            message: error.message || 'An error occurred while retrieving the prescription',
+        });     
     }
 }
