@@ -7,16 +7,21 @@ const Prescription = require("./prescriptions");
 const PrescriptionItem = require("./prescription_items");
 
 // Supplier to Medicine
-Supplier.hasMany(Medicine);
-Medicine.belongsTo(Supplier);
+Supplier.hasMany(Medicine, { foreignKey: 'supplierId' }); ;
+Medicine.belongsTo(Supplier, { foreignKey: 'supplierId' });
 
 // Customer to Prescription
 Customer.hasMany(Prescription);
 Prescription.belongsTo(Customer);
 
 // Prescription to Medicine (many-to-many)
-Prescription.belongsToMany(Medicine, { through: PrescriptionItem });
-Medicine.belongsToMany(Prescription, { through: PrescriptionItem });
+Prescription.belongsToMany(Medicine,
+     { through: PrescriptionItem 
+    , foreignKey: 'prescriptionId' });
+Medicine.belongsToMany(Prescription, 
+    { through: PrescriptionItem, 
+    foreignKey: 'medicineId' });
+
 
 module.exports = {
   sequelize,
