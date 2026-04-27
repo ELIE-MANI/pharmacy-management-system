@@ -47,12 +47,17 @@ const prescriptionController = require('../controllers/prescription_controller')
  *           type: string
  *           format: uuid
  *           description: Unique identifier for the prescription
+ *         customerId:
+ *           type: string
+ *           format: uuid
+ *           description: ID of the customer
  *         items:
  *           type: array
  *           items:
  *             $ref: '#/components/schemas/PrescriptionItem'
  *       example:
  *         id: "123e4567-e89b-12d3-a456-426614174000"
+ *         customerId: "789e0123-e89b-12d3-a456-426614174003"
  *         items: []
  */
 
