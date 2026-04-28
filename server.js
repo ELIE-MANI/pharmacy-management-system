@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
+
 const {sequelize} = require('./models');
 const customerRoutes = require('./routes/customer_routes');
 const  supplierRoutes = require('./routes/supplier_routes');
