@@ -25,7 +25,14 @@ module.exports = {
     },
     supplierId:{
         type: Sequelize.UUID,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'suppliers',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+
      }
     })
   },
